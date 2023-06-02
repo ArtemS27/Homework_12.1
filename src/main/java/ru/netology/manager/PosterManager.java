@@ -4,8 +4,14 @@ import ru.netology.poster.FilmItem;
 
 public class PosterManager {
     private FilmItem[] films = new FilmItem[0];
-    private FilmItem[] findAll;
     private int lastFilmsShowedLimit = 5;
+
+    public PosterManager() {
+    }
+
+    public PosterManager(int lastFilmsShowedLimit) {
+        this.lastFilmsShowedLimit = lastFilmsShowedLimit;
+    }
 
     public void addFilm(FilmItem film) {
         FilmItem[] tmp = new FilmItem[films.length + 1];
@@ -21,28 +27,20 @@ public class PosterManager {
         for (int i = 0; i < reversed.length; i++) {
             reversed[i] = films[films.length - 1 - i];
         }
-        findAll = reversed;
-        return findAll;
+        return reversed;
     }
 
     public FilmItem[] findLast() {
-        FilmItem[] tmp = new FilmItem[lastFilmsShowedLimit];
-        for (int i = 0; i < lastFilmsShowedLimit; i++) {
-            tmp[i] = findAll[i];
-        }
-        return tmp;
-    }
-
-    public FilmItem[] findLast(int lastFilmsShowed) {
         int resultLength;
-        if (lastFilmsShowed < films.length && lastFilmsShowed > 0) {
-            resultLength = lastFilmsShowed;
+        if (lastFilmsShowedLimit < films.length && lastFilmsShowedLimit > 0) {
+            resultLength = lastFilmsShowedLimit;
         } else {
-            resultLength = this.lastFilmsShowedLimit;
+            resultLength = 5;
         }
         FilmItem[] tmp = new FilmItem[resultLength];
+        FilmItem[] tmp1 = findAll();
         for (int i = 0; i < resultLength; i++) {
-            tmp[i] = findAll[i];
+            tmp[i] = tmp1[i];
         }
         return tmp;
     }

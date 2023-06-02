@@ -28,7 +28,6 @@ public class PosterManagerTest {
         manager.addFilm(item7);
         manager.addFilm(item8);
         manager.addFilm(item9);
-        manager.findAll();
     }
 
     @Test
@@ -55,32 +54,72 @@ public class PosterManagerTest {
 
     @Test
     void showLastFilmsUserSet() {
+        PosterManager managerUserSet = new PosterManager(7);
+        managerUserSet.addFilm(item1);
+        managerUserSet.addFilm(item2);
+        managerUserSet.addFilm(item3);
+        managerUserSet.addFilm(item4);
+        managerUserSet.addFilm(item5);
+        managerUserSet.addFilm(item6);
+        managerUserSet.addFilm(item7);
+        managerUserSet.addFilm(item8);
+        managerUserSet.addFilm(item9);
         FilmItem[] expected = {item9, item8, item7, item6, item5, item4, item3};
-        FilmItem[] actual = manager.findLast(7);
+        FilmItem[] actual = managerUserSet.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     void showLastFilmsUserSetOverLength() {
+        PosterManager managerUserSet = new PosterManager(12);
+        managerUserSet.addFilm(item1);
+        managerUserSet.addFilm(item2);
+        managerUserSet.addFilm(item3);
+        managerUserSet.addFilm(item4);
+        managerUserSet.addFilm(item5);
+        managerUserSet.addFilm(item6);
+        managerUserSet.addFilm(item7);
+        managerUserSet.addFilm(item8);
+        managerUserSet.addFilm(item9);
         FilmItem[] expected = {item9, item8, item7, item6, item5};
-        FilmItem[] actual = manager.findLast(12);
+        FilmItem[] actual = managerUserSet.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    void showLastFilmsUserSetZero(){
+    void showLastFilmsUserSetZero() {
+        PosterManager managerUserSet = new PosterManager(0);
+        managerUserSet.addFilm(item1);
+        managerUserSet.addFilm(item2);
+        managerUserSet.addFilm(item3);
+        managerUserSet.addFilm(item4);
+        managerUserSet.addFilm(item5);
+        managerUserSet.addFilm(item6);
+        managerUserSet.addFilm(item7);
+        managerUserSet.addFilm(item8);
+        managerUserSet.addFilm(item9);
         FilmItem[] expected = {item9, item8, item7, item6, item5};
-        FilmItem[] actual = manager.findLast(0);
+        FilmItem[] actual = managerUserSet.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    void ShowLastFilmsUserSetNegativeNumber(){
+    void ShowLastFilmsUserSetNegativeNumber() {
+        PosterManager managerUserSet = new PosterManager(-5);
+        managerUserSet.addFilm(item1);
+        managerUserSet.addFilm(item2);
+        managerUserSet.addFilm(item3);
+        managerUserSet.addFilm(item4);
+        managerUserSet.addFilm(item5);
+        managerUserSet.addFilm(item6);
+        managerUserSet.addFilm(item7);
+        managerUserSet.addFilm(item8);
+        managerUserSet.addFilm(item9);
         FilmItem[] expected = {item9, item8, item7, item6, item5};
-        FilmItem[] actual = manager.findLast(-5);
+        FilmItem[] actual = managerUserSet.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
