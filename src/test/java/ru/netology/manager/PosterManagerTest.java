@@ -42,6 +42,8 @@ public class PosterManagerTest {
     void shouldReverseFilms() {
         FilmItem[] expected = {item9, item8, item7, item6, item5, item4, item3, item2, item1};
         FilmItem[] actual = manager.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
@@ -82,7 +84,7 @@ public class PosterManagerTest {
         managerUserSet.addFilm(item7);
         managerUserSet.addFilm(item8);
         managerUserSet.addFilm(item9);
-        FilmItem[] expected = {item9, item8, item7, item6, item5};
+        FilmItem[] expected = {item9, item8, item7, item6, item5, item4, item3, item2, item1};
         FilmItem[] actual = managerUserSet.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
@@ -100,7 +102,7 @@ public class PosterManagerTest {
         managerUserSet.addFilm(item7);
         managerUserSet.addFilm(item8);
         managerUserSet.addFilm(item9);
-        FilmItem[] expected = {item9, item8, item7, item6, item5};
+        FilmItem[] expected = {item9, item8, item7, item6, item5, item4, item3, item2, item1};
         FilmItem[] actual = managerUserSet.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
@@ -118,7 +120,7 @@ public class PosterManagerTest {
         managerUserSet.addFilm(item7);
         managerUserSet.addFilm(item8);
         managerUserSet.addFilm(item9);
-        FilmItem[] expected = {item9, item8, item7, item6, item5};
+        FilmItem[] expected = {item9, item8, item7, item6, item5, item4, item3, item2, item1};
         FilmItem[] actual = managerUserSet.findLast();
 
         Assertions.assertArrayEquals(expected, actual);

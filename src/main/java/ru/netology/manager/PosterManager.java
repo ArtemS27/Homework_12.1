@@ -4,9 +4,10 @@ import ru.netology.poster.FilmItem;
 
 public class PosterManager {
     private FilmItem[] films = new FilmItem[0];
-    private int lastFilmsShowedLimit = 5;
+    private int lastFilmsShowedLimit;
 
     public PosterManager() {
+        lastFilmsShowedLimit = 5;
     }
 
     public PosterManager(int lastFilmsShowedLimit) {
@@ -35,7 +36,7 @@ public class PosterManager {
         if (lastFilmsShowedLimit < films.length && lastFilmsShowedLimit > 0) {
             resultLength = lastFilmsShowedLimit;
         } else {
-            resultLength = 5;
+            resultLength = films.length;
         }
         FilmItem[] tmp = new FilmItem[resultLength];
         FilmItem[] tmp1 = findAll();
